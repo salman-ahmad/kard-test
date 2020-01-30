@@ -1,6 +1,7 @@
-require("@babel/register")({
-  presets: ["@babel/preset-env"]
+require('@babel/register')({
+	presets: ['@babel/preset-env']
 });
 
 // Import the rest of our application.
-module.exports = require('./test/start.js')
+const startProcess = require('./test/start').default
+startProcess();

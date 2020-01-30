@@ -2,4 +2,6 @@
 import transactions from './transactions.json';
 
 //Please write your code below this line.
-console.log(transactions);
+export default function() {
+	console.log(transactions);
+}
