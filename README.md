@@ -12,8 +12,9 @@ To run the project run the following:
 
 `npm start`
 
-**Your task is to create a text file from a transaction JSON file (provided) and write the file (JSON) format into the output folder.**<br />
-All fields should contain values with pipe delimited format.
+**Your task is to create a text file from a transaction JSON file (provided), parse the data and write the file (JSON) format into the output folder.**  
+
+  All fields should contain values with pipe delimited format.
   
 **Header should contain the following:**  
   
@@ -56,5 +57,3 @@ If you were able to finish the task within given time, feel free to refactor you
 **Can I leave comments in code?** - Leaving comments to express your logic or your thoughts is great!.
 
 **I couldn't complete everything in the alotted time, what do I do?** - Submit what you can. We don't expect a flawless system given the time constraints, we expect to see how you think.
-
-**What if I have questions that aren't answered?** - Please contact one of the team members via email.
