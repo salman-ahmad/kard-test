@@ -21,11 +21,12 @@ To run the project run the following:
     V1.0|STARTFEED|Kard|[timeStamp in ISO format]|[# of total lines in this text file not including the header and the footer]
   
 **Main content should contain the following:**  
-- First row should always be the aggregate sum of the total commission issued to a specific user. *Please take into account for negative value as well
-- Rest should display itemized transactions for a specific user.
 
     1||[referringPartnerAccountId]||AGG|||[sum of the commissionToUserInCents]||  
     2|[_id]|[referringPartnerAccountId]|[offer._id]|[status]|[transactionDate]|[merchantName]|[commissionToUserInCents]|[transactionAmountInCents]|[source]
+
+- First row should always be the aggregate sum of the total commission issued to a specific user. *Please take into account for negative value as well
+- Rest should display itemized transactions for a specific user.
 
 **Footer should contain the following:**  
   
