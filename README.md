@@ -15,21 +15,21 @@ To run the project run the following:
 **Your task is to create a text file from a transaction JSON file (provided) and write the file (JSON) format into the output folder.**<br />
 All fields should contain values with pipe delimited format.
   
-**Header should contain the following:**<br />
+**Header should contain the following:**  
   V1.0|STARTFEED|Kard|[timeStamp in ISO format]|[# of total lines in this text file not including the header and the footer]
   
-**Main content should contain the following:**<br />
+**Main content should contain the following:**  
 - First row should always be the aggregate sum of the total commission issued to a specific user. *Please take into account for negative value as well
 - Rest should display itemized transactions for a specific user.
 
-  1||[referringPartnerAccountId]||AGG|||[sum of the commissionToUserInCents]||
-  2|[_id]|[referringPartnerAccountId]|[offer._id]|[status]|[transactionDate]|[merchantName]|[commissionToUserInCents]|[transactionAmountInCents]|[source]
+1||[referringPartnerAccountId]||AGG|||[sum of the commissionToUserInCents]||  
+2|[_id]|[referringPartnerAccountId]|[offer._id]|[status]|[transactionDate]|[merchantName]|[commissionToUserInCents]|[transactionAmountInCents]|[source]
 
-**Footer should contain the following:**<br />
+**Footer should contain the following:**  
   ENDFEED|[total sum of commissionToUserInCents]|[total sum of the transactionAmountInCents];
 
 
-  -- Expected Output:
+**Expected Output:**  
       V1.0|STARTFEED|Kard|2020-01-30T17:43:48.227Z|10
       1||99988777||AGG|||138||
       2|5c76ee73fa71ed7e83c2d1dc|99988777|5c6eed1693b10aed52451b33|SETTLED|20190220|1-800 Postcards|43|35|WEB
