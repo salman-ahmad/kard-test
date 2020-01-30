@@ -8,7 +8,7 @@ The boilerplate is built on the following:
 
     - Node 10.x.x
 
-To run the project run the following: 
+**To run the project run the following:**   
 
 `npm start`
 
