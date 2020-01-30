@@ -15,12 +15,12 @@ To run the project run the following:
 **Your task is to create a text file from a transaction JSON file (provided) and write the file (JSON) format into the output folder**
 All fields should contain values with pipe delimited format.
   
-  -- Header should contain the following:
+  -- Header should contain the following: <br />
       V1.0|STARTFEED|Kard|[timeStamp in ISO format]|[# of total lines in this text file not including the header and the footer]
   
   -- Main content should contain the following:
-      a. First row should always be the aggregate sum of the total commission issued to a specific user. *Please take into account for negative value as well
-      b. Rest should display itemized transactions for a specific user.
+      - First row should always be the aggregate sum of the total commission issued to a specific user. *Please take into account for negative value as well
+      - Rest should display itemized transactions for a specific user.
 
       1||[referringPartnerAccountId]||AGG|||[sum of the commissionToUserInCents]||
       2|[_id]|[referringPartnerAccountId]|[offer._id]|[status]|[transactionDate]|[merchantName]|[commissionToUserInCents]|[transactionAmountInCents]|[source]
