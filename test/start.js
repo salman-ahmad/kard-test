@@ -14,13 +14,13 @@ export default function() {
       return {
         ...acc,
         [tx.referringPartnerAccountId]: [tx]
-      }
+      };
     }
-    acc[tx.referringPartnerAccountId].push(tx)
-    return acc
-  }, {})
+    acc[tx.referringPartnerAccountId].push(tx);
+    return acc;
+  }, {});
 
-  const { body, result } = generateBody(byAccountId)
+  const { body, result } = generateBody(byAccountId);
   const fileContent = [
     appendHeader(result.lines),
     ...body,
@@ -39,7 +39,7 @@ const appendHeader = lines => {
     new Date().toISOString(),
     lines
   ].join('|');
-}
+};
 
 const appendFooter = (totalUserCommission, totalAmount) => {
   return [
@@ -47,7 +47,7 @@ const appendFooter = (totalUserCommission, totalAmount) => {
     totalUserCommission,
     totalAmount
   ].join('|');
-}
+};
 
 const appendTransaction = (lineNumber, transaction) => {
   return [
@@ -62,7 +62,7 @@ const appendTransaction = (lineNumber, transaction) => {
     transaction.transactionAmountInCents,
     transaction.source
   ].join('|');
-}
+};
 
 const generateBody = data => {
   const body = [];
@@ -74,27 +74,27 @@ const generateBody = data => {
 
   Object.entries(data)
     .forEach(([accountId, transactions]) => {
-      const chunk = []
-      let accountCommission = 0
-      result.lines += 1
-      const accountLineNumber = result.lines
+      const chunk = [];
+      let accountCommission = 0;
+      result.lines += 1;
+      const accountLineNumber = result.lines;
       transactions.forEach(tx => {
-        result.lines += 1
-        result.totalUserCommission += tx.commissionToUserInCents
-        result.totalAmount += tx.transactionAmountInCents
+        result.lines += 1;
+        result.totalUserCommission += tx.commissionToUserInCents;
+        result.totalAmount += tx.transactionAmountInCents;
         if (tx.status === 'SETTLED') {
-          accountCommission += tx.commissionToUserInCents
+          accountCommission += tx.commissionToUserInCents;
         }
-        chunk.push(appendTransaction(result.lines, tx))
-      })
-      chunk.unshift(`${accountLineNumber}||${accountId}||AG|||${accountCommission}||`)
-      body.push(...chunk)
-    })
+        chunk.push(appendTransaction(result.lines, tx));
+      });
+      chunk.unshift(`${accountLineNumber}||${accountId}||AG|||${accountCommission}||`);
+      body.push(...chunk);
+    });
 
-  return { body, result }
-}
+  return { body, result };
+};
 
 const writeToFile = (content, filename = 'transactions.txt') => {
   // use sync operation for now
   fs.writeFileSync(filename, content, { encoding: 'utf8' });
-}
+};
